@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/moon2508/automative_update_avg_price_goods/issues"
   },
-  "homepage": "https://github.com/moon2508/automative_update_avg_price_goods#readme"
+  "homepage": "https://github.com/moon2508/automative_update_avg_price_goods#readme",
+  "dependencies": {
+    "cypress": "^13.11.0"
+  }
 }
