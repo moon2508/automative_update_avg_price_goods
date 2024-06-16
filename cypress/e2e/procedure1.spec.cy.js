@@ -55,22 +55,22 @@ function importation(username, password, warehouseImport,provider, product1,prod
       //Nhập SL
       cy.get('input[placeholder="Nhập Số lượng thực nhập"]').eq(3).click().clear().type('{del}'+quality+'{del}',{delay:200});
       cy.wait(1000);
-      cy.get('input[placeholder="Nhập giá nhập"]').eq(3).click().clear().type(price,{delay:300});
+      cy.get('input[placeholder="Nhập giá nhập"]').eq(3).click().clear().type('{selectall}'+price,{delay:300});
   
       cy.wait(500);
       cy.get('input[placeholder="Nhập Số lượng thực nhập"]').eq(2).click().clear().type('{del}'+quality+'{del}',{delay:200});
       cy.wait(1000);
-      cy.get('input[placeholder="Nhập giá nhập"]').eq(2).click().clear().type(price*2,{delay:300});
+      cy.get('input[placeholder="Nhập giá nhập"]').eq(2).click().clear().type('{selectall}'+price*2,{delay:300});
   
       cy.wait(500);
       cy.get('input[placeholder="Nhập Số lượng thực nhập"]').eq(1).click().clear().type('{del}'+quality+'{del}',{delay:200});
       cy.wait(1000);
-      cy.get('input[placeholder="Nhập giá nhập"]').eq(1).click().clear().type(price*3,{delay:300});
+      cy.get('input[placeholder="Nhập giá nhập"]').eq(1).click().clear().type('{selectall}'+price*3,{delay:300});
   
       cy.wait(500);
       cy.get('input[placeholder="Nhập Số lượng thực nhập"]').eq(0).click().clear().type('{del}'+quality+'{del}',{delay:200});
       cy.wait(1000);
-      cy.get('input[placeholder="Nhập giá nhập"]').eq(0).click().clear().type(price*4,{delay:300});
+      cy.get('input[placeholder="Nhập giá nhập"]').eq(0).click().clear().type('{selectall}'+price*4,{delay:300});
   
       cy.wait(500);
       cy.get('input[name="note"]').eq(0).clear().type(text,{delay:50});
@@ -414,7 +414,7 @@ function adjustment(username, password, cancellationCode, backImportCode,invento
 };
 
 
-// importation(username, password, warehouseImport,provider, product1,product2,product3, product4,quality, price, text);
+importation(username, password, warehouseImport,provider, product1,product2,product3, product4,quality, price, text);
 // exchange(username,password,warehouseImport,warehouseReceive, product1,product2,product3,product4,quality_transfer,text, exchangeCode);
 // cancellation(username, password, warehouseImport, product1,product2,product3,product4,quality_cancel,text);
 // backImport(username, password, warehouseImport, provider, product1,product2,product3,product4,quality_back, text);
