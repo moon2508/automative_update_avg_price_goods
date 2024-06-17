@@ -1,8 +1,8 @@
 const username = 'admin';
 const password = '123';
 
-const start_date = '17/062024';
-const end_date = '17/062024';
+const start_date = '16/06/2024';
+const end_date = '17/06/2024';
 
 describe('Job cập nhật giá vốn trung bình - Thao tác UI', () => {
     beforeEach(() => {

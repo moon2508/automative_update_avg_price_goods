@@ -3,10 +3,10 @@
 const username = 'hangptt';
 const password = 'Hang@123';
 
-const product1 = 'Sản phẩm test 1200';
-const product2 = 'Sản phẩm test 1201';
-const product3 = 'Sản phẩm test 1203';
-const product4 = 'Sản phẩm test 1204';
+const product1 = 'Sản phẩm test 1210';
+const product2 = 'Sản phẩm test 1211';
+const product3 = 'Sản phẩm test 1213';
+const product4 = 'Sản phẩm test 1214';
 
 const warehouseImport = 'Kho Food - Kho HolaMart Trường Chinh';
 const warehouseReceive = 'Kho Food - Chi nhánh test PTDV';
@@ -31,7 +31,7 @@ function preliminary_configuration(username, password, product1, product2, produ
             cy.get('button').contains('Thêm mới').click();
             cy.wait(1000);
         });
-        it('Cấu hình sơ chế  - Type: Sơ chế ', () => {
+        it.only('Cấu hình sơ chế  - Type: Sơ chế ', () => {
 
             //nhập thông tin
             cy.get('button[title="Open"]').eq(2).click();
@@ -57,7 +57,7 @@ function preliminary_configuration(username, password, product1, product2, produ
             cy.get('button[type="submit"]').contains('Thêm mới').click();
         });
 
-        it.only('Cấu hình sơ chế  - Type: Chuyển đổi', () => {
+        it('Cấu hình sơ chế  - Type: Chuyển đổi', () => {
 
             //nhập thông tin
             cy.get('button[title="Open"]').eq(2).click();
@@ -97,7 +97,7 @@ describe('Tiến trình 2 - Step 2: Xuất sơ chế', () => {
         cy.get('button').contains('Thêm mới').click();
         cy.wait(1000);
     });
-    it('Cấu hình sơ chế  - Type: Sơ chế ', () => {
+    it.only('Cấu hình sơ chế  - Type: Sơ chế ', () => {
 
         //nhập thông tin
         cy.get('button[title="Open"]').eq(2).click();
@@ -120,10 +120,14 @@ describe('Tiến trình 2 - Step 2: Xuất sơ chế', () => {
         cy.get('input[placeholder="Nhập Số lượng thực tế"]').eq(0).click().clear().type('{del}' + (quality - 2) + '{del}', { delay: 300 });
         cy.wait(300);
         cy.get('input[name="note"]').click().type(text + ' - Sơ chế', { delay: 300 });
+        cy.wait(300);
 
         //lưu phiếu
         //   cy.get('button').contains('Lưu tạm').click();
-        // cy.get('button').contains('Hoàn thành').click();
+        cy.get('button').contains('Hoàn thành').click();
+        cy.wait(300);
+
+
     });
 
     it('Cấu hình sơ chế  - Type: Chuyển đổi', () => {
@@ -148,10 +152,13 @@ describe('Tiến trình 2 - Step 2: Xuất sơ chế', () => {
         cy.get('input[placeholder="Nhập Số lượng thực tế"]').eq(0).click().clear().type('{del}' + (quality - 2) + '{del}', { delay: 300 });
         cy.wait(300);
         cy.get('input[name="note"]').click().type(text + ' - Chuyển đổi', { delay: 400 });
+        cy.wait(300);
 
         //lưu phiếu
         //   cy.get('button').contains('Lưu tạm').click();
-        // cy.get('button').contains('Hoàn thành').click();
+        cy.get('button').contains('Hoàn thành').click().click();
+        cy.wait(300);
+
     });
     });
 
@@ -159,4 +166,4 @@ describe('Tiến trình 2 - Step 2: Xuất sơ chế', () => {
 
 // preliminary_configuration(username, password, product1,product2,product3, product4,quality, text);
 
-// preliminary_export(username, password,warehouseImport, product1,price, fee, product3, quality, text);
+preliminary_export(username, password,warehouseImport, product1,price, fee, product3, quality, text);
