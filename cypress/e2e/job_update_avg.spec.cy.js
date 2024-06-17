@@ -1,5 +1,9 @@
 const username = 'admin';
 const password = '123';
+
+const start_date = '17/062024';
+const end_date = '17/062024';
+
 describe('Job cập nhật giá vốn trung bình - Thao tác UI', () => {
     beforeEach(() => {
         cy.viewport(2000, 1280);
@@ -13,5 +17,13 @@ describe('Job cập nhật giá vốn trung bình - Thao tác UI', () => {
         cy.wait(1000);
     });
     it('Cập nhật giá vốn trung bình ', () => {
+        // Chọn thời gian
+        cy.get('input[placeholder="dd/mm/yyyy"]').eq(0).click().clear().type(start_date);
+        cy.get('input[placeholder="dd/mm/yyyy"]').eq(1).click().clear().type(end_date);
+        cy.get('button[type="submit"]').contains('Thêm mới').click();
+        
+        cy.log('Cập nhật giá vốn trung bình thành công!')
+
+
     })
 })

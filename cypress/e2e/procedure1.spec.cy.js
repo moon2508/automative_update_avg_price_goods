@@ -25,7 +25,7 @@ const exchangeCode_pending ='PC1000226';
 function importation(username, password, warehouseImport,provider, product1,product2,product3, product4,quality, price, text){
   describe('Tiến trình 1 - Step 1: Nhập hàng', () => {
     beforeEach(()=>{
-      cy.viewport(1280, 1080);
+      cy.viewport(2000, 1280);
       cy.visit('http://192.168.100.198:8032/goodReceived');
       cy.get("#username").type(username);
       cy.get("#password").type(password);
@@ -85,7 +85,7 @@ function importation(username, password, warehouseImport,provider, product1,prod
 function exchange(username,password,warehouseImport,warehouseReceive, product1,product2,product3,product4,quality_transfer,text, exchangeCode){
   describe('Tiến trình 1 - Step 2: Chuyển hàng ', () => {
     beforeEach(()=>{
-      cy.viewport(1280, 1080);
+      cy.viewport(2000, 1280);
       cy.visit('http://192.168.100.198:8032/shipping-management');
       cy.get("#username").type(username);
       cy.get("#password").type(password);
@@ -152,7 +152,7 @@ function exchange(username,password,warehouseImport,warehouseReceive, product1,p
 function cancellation(username, password, warehouseImport, product1,product2,product3,product4,quality_cancel,text){
   describe('Tiến trình 1 - Step 4: Xuất hủy', () => {
     beforeEach(()=>{
-      cy.viewport(1280, 1080);
+      cy.viewport(2000, 1280);
       cy.visit('http://192.168.100.198:8032/cancellation-ticket');
       cy.get("#username").type(username);
       cy.get("#password").type(password);
@@ -204,7 +204,7 @@ function cancellation(username, password, warehouseImport, product1,product2,pro
 function backImport(username, password, warehouseImport, provider, product1,product2,product3,product4,quality_back, text){
   describe('Tiến trình 1 - Step 4: Trả hàng nhập', () => {
     beforeEach(()=>{
-      cy.viewport(1280, 1080);
+      cy.viewport(2000, 1280);
       cy.visit('http://192.168.100.198:8032/merchandiseReturned');
       cy.get("#username").type(username);
       cy.get("#password").type(password);
@@ -256,7 +256,7 @@ function backImport(username, password, warehouseImport, provider, product1,prod
 function checkInventory(username,password,warehouseImport,product1,product2,product3, product4, quality, text){
   describe('Tiến trình 1 - Step 4: Kiểm kho', () => {
     beforeEach(()=>{
-      cy.viewport(1280, 1080);
+      cy.viewport(2000, 1280);
       cy.visit('http://192.168.100.198:8032/inventory');
       cy.get("#username").type(username);
       cy.get("#password").type(password);
@@ -303,7 +303,7 @@ function checkInventory(username,password,warehouseImport,product1,product2,prod
 function adjustment(username, password, cancellationCode, backImportCode,inventoryCode,exchangeCode_pending,quality_adjust,text){
   describe('Tiến trình 1 - Step 5: Điều chỉnh các phiếu kho hàng', () => {
     beforeEach(()=>{
-      cy.viewport(1280, 1080);
+      cy.viewport(2000, 1280);
       cy.visit('http://192.168.100.198:8032/adjustment-ticket');
       cy.get("#username").type(username);
       cy.get("#password").type(password);

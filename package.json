@@ -1,21 +1,13 @@
 {
-  "name": "automative_update_avg_price_goods",
+  "name": "auto_update_avg_cost_products",
   "version": "1.0.0",
-  "description": "Tiến trình cập nhật giá vốn trung bình",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/moon2508/automative_update_avg_price_goods.git"
-  },
   "author": "Thanh Hằng",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/moon2508/automative_update_avg_price_goods/issues"
-  },
-  "homepage": "https://github.com/moon2508/automative_update_avg_price_goods#readme",
   "dependencies": {
     "cypress": "^13.11.0"
   }
