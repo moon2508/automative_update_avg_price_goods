@@ -1,10 +1,10 @@
 const username = 'hangptt';
 const password = 'Hang@123';
 
-const product1 = 'MOON.01.TEST.1210';
-const product2 = 'MOON.01.TEST.1211';
-const product3 = 'MOON.01.TEST.1213';
-const product4 = 'MOON.01.TEST.1214';
+const product1 = 'MOON.01.TEST.1220';
+const product2 = 'MOON.01.TEST.1221';
+const product3 = 'MOON.01.TEST.1222';
+const product4 = 'MOON.01.TEST.1223';
 const warehouseImport = 'Kho Food - Kho HolaMart Trường Chinh';
 const warehouseReceive = 'Kho Food - Chi nhánh test PTDV';
 const provider = 'NCC test PTDV';
@@ -14,13 +14,16 @@ const quality_cancel = 5;
 const quality_back = 5;
 const quality_adjust = 2;
 const price = 15000;
+const price_adjust = 20000;
 const text = 'Auto change aver cost';
-
 const exchangeCode ='PC1000226';
-const cancellationCode = 'PH1000086';
-const backImportCode = 'PTH1000054';
-const inventoryCode = 'PKK100000097';
-const exchangeCode_pending ='PC1000229';
+
+const cancellationCode = 'PH1000088';
+const backImportCode = 'PTH1000056';
+const inventoryCode = 'PKK100000098';
+const exchangeCode_pending ='PC1000230';
+const importationCode="IMP1000666";
+
 
 function importation(username, password, warehouseImport,provider, product1,product2,product3, product4,quality, price, text){
   describe('Tiến trình 1 - Step 1: Nhập hàng', () => {
@@ -341,7 +344,7 @@ function adjustment(username, password, cancellationCode, backImportCode,invento
   
     }); 
   
-    it.only('Adjustment - Trả hàng nhập', () => {
+    it('Adjustment - Trả hàng nhập', () => {
    //nhập thông tin
    cy.get('input[name = "exchangeAgencyId"]').eq(0).type('Trả hàng nhập' + "{pageDown}{enter}");
    cy.wait(200);
@@ -388,6 +391,29 @@ function adjustment(username, password, cancellationCode, backImportCode,invento
    cy.get('button').contains('Đồng ý').click();
     });
 
+    it('Adjustment - Nhập hàng', ()=>{
+         //nhập thông tin
+   cy.get('input[name = "exchangeAgencyId"]').eq(0).type('Nhập hàng' + "{pageDown}{enter}");
+   cy.wait(200);
+   cy.get('input[placeholder="Quét/nhập tìm mã phiếu gốc"]').eq(0).type(importationCode + "{enter}");
+   cy.wait(200);
+   cy.get('span').contains('Mã điều chỉnh').click();
+
+     //Nhập SL
+     cy.get('input.MuiInputBase-input.MuiInput-input.css-mnn31[placeholder="Nhập"]').eq(6).click().clear().type('{del}'+price_adjust+'{del}', {delay:300});
+     cy.wait(700);
+     cy.get('input.MuiInputBase-input.MuiInput-input.css-mnn31[placeholder="Nhập"]').eq(4).click().clear().type('{del}'+price_adjust+'{del}', {delay:300});
+     cy.wait(700);
+     cy.get('input.MuiInputBase-input.MuiInput-input.css-mnn31[placeholder="Nhập"]').eq(2).click().clear().type('{del}'+price_adjust+'{del}', {delay:300});
+     cy.wait(700);
+     cy.get('input.MuiInputBase-input.MuiInput-input.css-mnn31[placeholder="Nhập"]').eq(0).click().clear().type('{del}'+price_adjust+'{del}', {delay:300});
+     cy.wait(700);
+     cy.get('button').contains('Duyệt').click().click();
+   cy.get('button').contains('Đồng ý').click();
+     
+
+    })
+
     it('Adjustment - Chuyển hàng', () => {
    //nhập thông tin
    cy.get('input[name = "exchangeAgencyId"]').eq(0).type('Chuyến hàng' + "{pageDown}{enter}");
@@ -415,10 +441,10 @@ function adjustment(username, password, cancellationCode, backImportCode,invento
 };
 
 
-// importation(username, password, warehouseImport,provider, product1,product2,product3, product4,quality, price, text);
-// exchange(username,password,warehouseImport,warehouseReceive, product1,product2,product3,product4,quality_transfer,text, exchangeCode);
-// cancellation(username, password, warehouseImport, product1,product2,product3,product4,quality_cancel,text);
-// backImport(username, password, warehouseImport, provider, product1,product2,product3,product4,quality_back, text);
-// checkInventory(username,password,warehouseImport,product1,product2,product3, product4, quality, text);
-adjustment(username, password, cancellationCode, backImportCode,inventoryCode,exchangeCode_pending,quality_adjust,text);
+importation(username, password, warehouseImport,provider, product1,product2,product3, product4,quality, price, text);
+exchange(username,password,warehouseImport,warehouseReceive, product1,product2,product3,product4,quality_transfer,text, exchangeCode);
+cancellation(username, password, warehouseImport, product1,product2,product3,product4,quality_cancel,text);
+backImport(username, password, warehouseImport, provider, product1,product2,product3,product4,quality_back, text);
+checkInventory(username,password,warehouseImport,product1,product2,product3, product4, quality, text);
+// adjustment(username, password, cancellationCode, backImportCode,inventoryCode,exchangeCode_pending,quality_adjust, price_adjust,text);
 
