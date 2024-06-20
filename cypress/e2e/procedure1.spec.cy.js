@@ -1,10 +1,10 @@
 const username = 'hangptt';
 const password = 'Hang@123';
 
-const product1 = 'MOON.01.TEST.1220';
-const product2 = 'MOON.01.TEST.1221';
-const product3 = 'MOON.01.TEST.1222';
-const product4 = 'MOON.01.TEST.1223';
+const product1 = 'MOON.01.TEST.1240';
+const product2 = 'MOON.01.TEST.1241';
+const product3 = 'MOON.01.TEST.1243';
+const product4 = 'MOON.01.TEST.1244';
 const warehouseImport = 'Kho Food - Kho HolaMart Trường Chinh';
 const warehouseReceive = 'Kho Food - Chi nhánh test PTDV';
 const provider = 'NCC test PTDV';
@@ -13,7 +13,7 @@ const quality_transfer = 10;
 const quality_cancel = 5;
 const quality_back = 5;
 const quality_adjust = 2;
-const price = 15000;
+const price = 12000;
 const price_adjust = 20000;
 const text = 'Auto change aver cost';
 const exchangeCode ='PC1000226';
@@ -441,10 +441,10 @@ function adjustment(username, password, cancellationCode, backImportCode,invento
 };
 
 
-importation(username, password, warehouseImport,provider, product1,product2,product3, product4,quality, price, text);
+// importation(username, password, warehouseImport,provider, product1,product2,product3, product4,quality, price, text);
 exchange(username,password,warehouseImport,warehouseReceive, product1,product2,product3,product4,quality_transfer,text, exchangeCode);
-cancellation(username, password, warehouseImport, product1,product2,product3,product4,quality_cancel,text);
-backImport(username, password, warehouseImport, provider, product1,product2,product3,product4,quality_back, text);
-checkInventory(username,password,warehouseImport,product1,product2,product3, product4, quality, text);
+// cancellation(username, password, warehouseImport, product1,product2,product3,product4,quality_cancel,text);
+// backImport(username, password, warehouseImport, provider, product1,product2,product3,product4,quality_back, text);
+// checkInventory(username,password,warehouseImport,product1,product2,product3, product4, quality, text);
 // adjustment(username, password, cancellationCode, backImportCode,inventoryCode,exchangeCode_pending,quality_adjust, price_adjust,text);
 

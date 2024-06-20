@@ -1,8 +1,8 @@
 const username = 'hangptt';
 const password = 'Hang@123';
 const warehouseImport = "Trường Chinh";
-const product1 = 'MOON.01.TEST.1220';
-const product2 = 'MOON.01.TEST.1221';
+const product1 = 'MOON.01.TEST.1230';
+const product2 = 'MOON.01.TEST.1235';
 const quality = 5;
 const totalMoney = 5000000;
 const text = "Auto test tiến trình 5";
